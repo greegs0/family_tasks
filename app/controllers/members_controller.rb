@@ -31,11 +31,11 @@ class MembersController < ApplicationController
 
   private
 
-  def set_animal
+  def set_member
     @member = Member.find(params[:id])
   end
 
-  def animals_params
+  def members_params
     params.require(:member).permit(:name, :zipcode, :birthday)
   end
 
