@@ -1,0 +1,10 @@
+<h1>Tous les membres de la famille :</h1>
+
+<ul>
+  <% @members.each do |member| %>
+    <li><p><%= link_to member.name, member_path(member) %> - (<%= member.birthday %>)</p></li>
+  <% end %>
+</ul>
+
+<%= link_to "Ajouter un nouveau membre", new_member_path %>
+// mettre à jour le link to quand les routes sernt à jour
