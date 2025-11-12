@@ -1,11 +1,8 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @families = Family.all
-  end
-
   def show
+    @member = Member.new
   end
 
   def new

@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between">
+    <h1>Famille <%= @family.name %></h1>
+    <%= link_to "Modifier", edit_family_path(@member) class: "btn btn-outline-primary"%>
+  </div>
+  <span>Nombre de membres : <%= @members.count %> | Code postal : <%= @family.zipcode %></span>
+  <hr>
+  <% @members.each do |member| %>
+    <span class="cards"><%= member.name %></span>
+  <% end %>
+</div>

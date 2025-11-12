@@ -1,0 +1,9 @@
+<div class="container">
+  <h2><%= @member.name %></h2>
+
+  <p><%= @member.birthday %> à <%= @member.zipcode %></p>
+
+  <%= link_to "Modifier la fiche", edit_member_path(@member) %>
+  <%= link_to "Supprimer la fiche", member_path(@member), data: {turbo_method: :delete, turbo_confirm: "Êtes vous sûr ?"} %>
+  <%= link_to "Retour à la liste", members_path %>
+</div>
