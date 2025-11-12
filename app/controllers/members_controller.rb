@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+  before_action :set_member, only: [:show, :edit, :update]
+
   def index
     @members = Member.all
   end
@@ -6,8 +8,13 @@ class MembersController < ApplicationController
   def show
   end
 
-  def new
-    @member = Member.new
+  def create
+    @member = Member.new(member_params)
+    if @member.save
+      redirect_to families_path, notice: "Member created succesfully ! Welcome !"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
