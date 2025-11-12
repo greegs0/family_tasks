@@ -1,0 +1,13 @@
+<div class="container mt-5">
+
+  <% if current_user.family %>
+  <h1>Coucou</h1>
+  <% else %>
+  <h1>Coucou sans famille</h1>
+    <%= simple_form_for @family do |f| %>
+      <%= f.input :name %>
+      <%= f.input :zipcode %>
+      <%= f.submit "Create", class: "btn btn-outline-primary" %>
+    <% end %>
+  <% end %>
+</div>

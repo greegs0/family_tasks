@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "families#new"
 
-  resources :families do
+  resources :families, except: [:index, :new] do
     resources :members, only: [:index, :new, :create]
     resources :chats, only: [:index, :create]
   end

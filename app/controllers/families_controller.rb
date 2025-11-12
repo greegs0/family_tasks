@@ -6,7 +6,7 @@ class FamiliesController < ApplicationController
   end
 
   def new
-    @families = Family.new
+    @family = Family.new
   end
 
   def create
