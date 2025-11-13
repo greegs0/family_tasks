@@ -1,11 +1,17 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!
+  before_action :set_family, only: [:index, :new, :create]
+  before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
     @members = Member.all
   end
 
   def show
+  end
+
+  def new
+    @member = @family.members.new
   end
 
   def create
@@ -26,6 +32,14 @@ class MembersController < ApplicationController
     end
   end
 
+  def update
+    if @member.update(member_params)
+      redirect_to family_members_path(@member.family), notice: "Membre mis à jour avec succès"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def edit
   end
 
@@ -37,7 +51,17 @@ class MembersController < ApplicationController
     end
   end
 
+  def destroy
+    family = @member.family
+    @member.destroy
+    redirect_to family_members_path(family), notice: "Membre supprimé."
+  end
+
   private
+
+  def set_family
+    @family = Family.find(params[:family_id])
+  end
 
   def set_member
     @member = Member.find(params[:id])

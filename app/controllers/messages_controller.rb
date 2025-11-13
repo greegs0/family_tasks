@@ -8,11 +8,9 @@ class MessagesController < ApplicationController
     @anniversaires = @family.members.each do |member|
       member.birthday
     end
-
     @vaccines = @family.members.each do |member|
       member.birthday
     end
-
     if @Message.save!
       # J'instancie un nouveau chat RubyLLM
       @ruby_llm_chat = RubyLLM.chat
@@ -20,7 +18,7 @@ class MessagesController < ApplicationController
       # Je lui donne des instructions et je lui passe le message utilisateur- je stocke ça dans "response"
       response = @ruby_llm_chat.with_instructions(instructions).ask(@Message.content)
       @chat.messages.create(role: "assistant", content: response.content)
-      # @chat.generate_title_from_first_message
+      chat.generate_title_from_first_message
       redirect_to chat_path(@chat)
     else
       render "chats/show"

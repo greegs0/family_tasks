@@ -1,0 +1,187 @@
+<div class="flex flex-col min-h-screen items-start relative bg-white">
+  <div class="flex flex-col min-h-screen items-start relative self-stretch w-full bg-gray-50">
+    <div class="relative self-stretch w-full min-h-screen bg-gray-50">
+      <div class="w-full h-[33px] bg-white border-b [border-bottom-style:solid] border-[#0000001a]"></div>
+      <div class="flex flex-col w-full items-start gap-6 pt-6 pb-12 px-4 sm:px-6 md:px-8 lg:px-12 mt-[33px]">
+        <div class="w-full max-w-7xl mx-auto flex flex-col gap-6">
+          <!-- Header Section with AI Icon -->
+          <div
+            class="flex flex-col items-start p-6 md:p-8 relative self-stretch w-full rounded-[14px] border-2 border-solid border-[#e9d4ff] [background:linear-gradient(135deg,rgba(250,245,255,1)_0%,rgba(239,246,255,1)_100%)]"
+          >
+            <div class="flex w-full items-start gap-4 relative flex-col sm:flex-row">
+              <img class="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0" src="https://c.animaapp.com/mhxfchwloC97ck/img/container-11.svg" />
+              <div class="flex flex-col items-start gap-2 relative flex-1">
+                <div class="relative w-full">
+                  <p class="[font-family:'Inter',Helvetica] font-medium text-neutral-950 text-xl md:text-2xl tracking-[0.07px] leading-9">
+                    Assistant IA - Calendrier Familial
+                  </p>
+                </div>
+                <div class="relative w-full">
+                  <p class="[font-family:'Inter',Helvetica] font-normal text-[#354152] text-sm md:text-base tracking-[-0.31px] leading-6">
+                    Bonjour ! Merci d'avoir ajouté des nouveaux membres à votre famille, voici le calendrier de la
+                    famille pour les 12 prochains mois, qui comporte le calendrier des vacances et les rappels de
+                    vaccins.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- School Holidays Calendar Section -->
+          <div
+            class="p-6 md:p-8 flex flex-col items-start gap-6 md:gap-10 relative self-stretch w-full bg-white rounded-[14px] border border-solid border-[#0000001a]"
+          >
+            <div class="relative w-full flex items-center gap-2">
+              <img class="w-6 h-6 flex-shrink-0" src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-15.svg" />
+              <p class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-sm md:text-base tracking-[-0.31px] leading-6">
+                Calendrier des vacances scolaires 2025 (Zone A - Paris)
+              </p>
+            </div>
+            <div class="flex flex-col w-full items-start gap-3 relative">
+              <!-- Christmas Holidays -->
+              <div
+                class="flex flex-col items-start gap-1 p-4 relative self-stretch w-full bg-purple-50 rounded border-l-4 [border-left-style:solid] border-[#ac46ff]"
+              >
+                <div class="relative w-full">
+                  <div class="[font-family:'Inter',Helvetica] font-normal text-[#59168b] text-sm md:text-base tracking-[-0.31px] leading-6">
+                    🎄 Vacances de Noël
+                  </div>
+                </div>
+                <div class="relative w-full">
+                  <p class="[font-family:'Inter',Helvetica] font-normal text-[#354152] text-xs md:text-sm tracking-[-0.15px] leading-5">
+                    23 décembre 2024 - 6 janvier 2025
+                  </p>
+                </div>
+              </div>
+
+              <!-- Winter Holidays -->
+              <div
+                class="flex flex-col items-start gap-1 p-4 relative self-stretch w-full bg-purple-50 rounded border-l-4 [border-left-style:solid] border-[#ac46ff]"
+              >
+                <div class="relative w-full">
+                  <div class="[font-family:'Inter',Helvetica] font-normal text-[#59168b] text-sm md:text-base tracking-[-0.31px] leading-6">
+                    ⛷️ Vacances d'hiver
+                  </div>
+                </div>
+                <div class="relative w-full">
+                  <p class="[font-family:'Inter',Helvetica] font-normal text-[#354152] text-xs md:text-sm tracking-[-0.15px] leading-5">
+                    17 février - 3 mars 2025
+                  </p>
+                </div>
+              </div>
+
+              <!-- Spring Holidays -->
+              <div
+                class="flex flex-col items-start gap-1 p-4 relative self-stretch w-full bg-purple-50 rounded border-l-4 [border-left-style:solid] border-[#ac46ff]"
+              >
+                <div class="relative w-full">
+                  <div class="[font-family:'Inter',Helvetica] font-normal text-[#59168b] text-sm md:text-base tracking-[-0.31px] leading-6">
+                    🌸 Vacances de printemps
+                  </div>
+                </div>
+                <div class="relative w-full">
+                  <p class="[font-family:'Inter',Helvetica] font-normal text-[#354152] text-xs md:text-sm tracking-[-0.15px] leading-5">
+                    14 avril - 30 avril 2025
+                  </p>
+                </div>
+              </div>
+
+              <!-- Summer Holidays -->
+              <div
+                class="flex flex-col items-start gap-1 p-4 relative self-stretch w-full bg-purple-50 rounded border-l-4 [border-left-style:solid] border-[#ac46ff]"
+              >
+                <div class="relative w-full">
+                  <div class="[font-family:'Inter',Helvetica] font-normal text-[#59168b] text-sm md:text-base tracking-[-0.31px] leading-6">
+                    ☀️ Vacances d'été
+                  </div>
+                </div>
+                <div class="relative w-full">
+                  <p class="[font-family:'Inter',Helvetica] font-normal text-[#354152] text-xs md:text-sm tracking-[-0.15px] leading-5">
+                    7 juillet - 1 septembre 2025
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vaccine Reminders Section -->
+          <% if @family && @family.members.any? %>
+            <div
+              class="p-6 md:p-8 flex flex-col items-start gap-6 md:gap-10 relative self-stretch w-full bg-white rounded-[14px] border border-solid border-[#0000001a]"
+            >
+              <div class="relative w-full flex items-center gap-2">
+                <img class="w-6 h-6 flex-shrink-0" src="https://c.animaapp.com/mhxfchwloC97ck/img/icon.svg" />
+                <p class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-sm md:text-base tracking-[-0.31px] leading-6">
+                  Rappels de vaccins pour <%= @family.members.count %> membre<%= @family.members.count > 1 ? 's' : '' %>
+                </p>
+              </div>
+
+              <% @family.members.each do |member| %>
+                <div
+                  class="flex flex-col w-full items-start gap-3 p-4 md:p-5 relative rounded-[10px] border border-solid border-[#0000001a]"
+                >
+                  <div class="flex items-start justify-between relative self-stretch w-full flex-wrap gap-4">
+                    <div class="flex flex-col items-start gap-1 relative flex-1 min-w-0">
+                      <div class="relative w-full">
+                        <div class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-sm md:text-base tracking-[-0.31px] leading-6 truncate">
+                          <%= member.name %>
+                        </div>
+                      </div>
+                      <div class="relative w-full">
+                        <p class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs md:text-sm tracking-[-0.15px] leading-5 truncate">
+                          <% age = ((Date.today - member.birthday.to_date) / 365.25).to_i %>
+                          <%= age %> ans (né(e) le <%= member.birthday.strftime('%d/%m/%Y') %>)
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="flex w-10 h-10 flex-shrink-0 items-center justify-center rounded-full [background:linear-gradient(135deg,rgba(5,223,114,1)_0%,rgba(0,166,62,1)_100%)]"
+                    >
+                      <div class="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[-0.31px] leading-6">
+                        <%= member.name.first.upcase %>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-start gap-3 p-3 relative self-stretch w-full bg-green-50 rounded border border-solid border-[#b8f7cf]"
+                  >
+                    <div class="flex-shrink-0">
+                      <div class="text-[#00a63e] text-xl tracking-[-0.45px] leading-7 [font-family:'Inter',Helvetica] font-normal">
+                        ✓
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-start relative flex-1">
+                      <div class="relative w-full">
+                        <p class="[font-family:'Inter',Helvetica] font-normal text-[#0d532b] text-xs md:text-sm tracking-[-0.15px] leading-5">
+                          Tous les vaccins sont à jour
+                        </p>
+                      </div>
+                      <div class="relative w-full">
+                        <p class="[font-family:'Inter',Helvetica] font-normal text-[#008235] text-xs tracking-[0] leading-4">
+                          Prochain rappel DTP : <% dtp_year = Date.today.year + (65 - age) %><%= dtp_year %> (<%= 65 - age %> ans)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+
+              <div
+                class="flex flex-col w-full max-w-[782px] items-start p-4 relative bg-blue-50 rounded-[10px] border border-solid border-[#bddaff]"
+              >
+                <p class="[font-family:'Inter',Helvetica] font-normal text-[#1b388e] text-sm tracking-[-0.15px] leading-5">
+                  💡 <span class="font-bold">Ces informations sont générées automatiquement</span> par notre assistant IA en fonction des membres de votre famille, de leur âge et de votre code postal.
+                </p>
+              </div>
+            </div>
+          <% end %>
+
+          <!-- Navigation Button -->
+          <div class="flex items-start gap-4 relative self-stretch w-full">
+            <%= link_to 'Aller au dashboard', family_path(@family), class: 'all-[unset] box-border flex h-12 items-center justify-center gap-2 px-4 py-2 relative w-full bg-[#030213] rounded-lg cursor-pointer hover:bg-[#1a1a2e] transition-colors' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
