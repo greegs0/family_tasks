@@ -2,8 +2,11 @@ class FamiliesController < ApplicationController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
   def show
+    # set_family
     @member = Member.new
     @members = current_user.family.members
+    @chat = @family.chat
+    @Message = Message.new
   end
 
   def new
@@ -13,14 +16,16 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     @family.user = current_user
-    if @family.save
-      redirect_to @family, notice: "Family created succesfully ! Welcome !"
+    if @family.save!
+      @chat = Chat.create!(family_id: @family.id, user_id: current_user.id)
+      redirect_to family_path(@family), notice: "Family created succesfully ! Welcome !"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @family = Family.new(family_params)
   end
 
   def update
@@ -32,7 +37,7 @@ class FamiliesController < ApplicationController
   end
 
   def destroy
-    @flat.destroy
+    @family.destroy
     redirect_to families_path, notice: "Family deleted."
   end
 
@@ -43,6 +48,6 @@ class FamiliesController < ApplicationController
   end
 
   def family_params
-    params.require(:family).permit(:name, :zipcode, :user)
+    params.require(:family).permit(:name, :zipcode)
   end
 end

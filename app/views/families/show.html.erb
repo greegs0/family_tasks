@@ -1,18 +1,35 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between">
     <h1>Famille <%= @family.name %></h1>
-    <%= link_to "Modifier", edit_family_path, class: "btn btn-outline-primary"%>
   </div>
+  <span>Nombre de membres : <%= @members.count %> | Code postal : <%= @family.zipcode %></span>
+  <%= render 'shared/form', family: @family, member: @member %>
+  <div class="chat-wrapper">
+    <% if @chat %> <!-- true ou false -->
+      <% @chat.messages.each do |msg| %>
+        <p><%= msg.content %></p>
+      <% end %>
 
-  <% unless @members %>
-    <span>Nombre de membres : 0 | Code postal : <%= @family.zipcode %></span>
-    <%= render "shared/form",family: @family, member: @member %>
-  <% else %>
-    <span>Nombre de membres : <%= @members.count %> | Code postal : <%= @family.zipcode %></span>
-  <% end %>
+ <!-- >
+    chats/:id/families/:id/user/:id/review/:id/restaurants
+    simple_form_for [@chat, @family, @user, @review, @restaurant]
+    @chat = ou je trouve l'id de chat
+    @family = ou je trouve l'id de family
+    ...
+    @restaurant = Restaurant.new
+  -->
+      <!-- chats/:id/messages -->
+      <!-- @chat = id  -- >
+      <! Message.new  --->
 
+      <%= simple_form_for [@chat, @Message] do |f| %>
+        <%= f.input :content %>
+        <%= f.submit  %>
+      <% end %>
+    <% end %>
+  </div>
   <hr>
-  <%# @members.each do |member| %>
-    <%# <span class="cards"><%= member.name %></span>
-  <%# end %>
+  <% @members.each do |member| %>
+    <span class="cards"><%= member.name %></span>
+  <% end %>
 </div>
