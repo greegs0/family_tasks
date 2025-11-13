@@ -1,11 +1,18 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between">
     <h1>Famille <%= @family.name %></h1>
-    <%= link_to "Modifier", edit_family_path(@member) class: "btn btn-outline-primary"%>
+    <%= link_to "Modifier", edit_family_path, class: "btn btn-outline-primary"%>
   </div>
-  <span>Nombre de membres : <%= @members.count %> | Code postal : <%= @family.zipcode %></span>
-  <hr>
-  <% @members.each do |member| %>
-    <span class="cards"><%= member.name %></span>
+
+  <% unless @members %>
+    <span>Nombre de membres : 0 | Code postal : <%= @family.zipcode %></span>
+    <%= render "shared/form",family: @family, member: @member %>
+  <% else %>
+    <span>Nombre de membres : <%= @members.count %> | Code postal : <%= @family.zipcode %></span>
   <% end %>
+
+  <hr>
+  <%# @members.each do |member| %>
+    <%# <span class="cards"><%= member.name %></span>
+  <%# end %>
 </div>

@@ -3,6 +3,7 @@ class FamiliesController < ApplicationController
 
   def show
     @member = Member.new
+    @members = current_user.family.members
   end
 
   def new
@@ -11,6 +12,7 @@ class FamiliesController < ApplicationController
 
   def create
     @family = Family.new(family_params)
+    @family.user = current_user
     if @family.save
       redirect_to @family, notice: "Family created succesfully ! Welcome !"
     else
@@ -19,7 +21,6 @@ class FamiliesController < ApplicationController
   end
 
   def edit
-    @family = Family.new(family_params)
   end
 
   def update

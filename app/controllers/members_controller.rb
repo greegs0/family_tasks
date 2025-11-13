@@ -9,9 +9,10 @@ class MembersController < ApplicationController
   end
 
   def create
-    @member = Member.new(member_params)
-    if @member.save
-      redirect_to families_path, notice: "Member created succesfully ! Welcome !"
+    @member = Member.new(members_params)
+    @member.family = current_user.family
+    if @member.save!
+      redirect_to family_path(current_user.family), notice: "Member created succesfully ! Welcome !"
     else
       render :new, status: :unprocessable_entity
     end
