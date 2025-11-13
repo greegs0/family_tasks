@@ -2,6 +2,7 @@
 
   <% if current_user.family %>
   <h1>Coucou</h1>
+  <%= link_to "show members", family_path(current_user), class: "btn btn-outline-primary"%>
   <% else %>
   <h1>Coucou sans famille</h1>
     <%= simple_form_for @family do |f| %>
