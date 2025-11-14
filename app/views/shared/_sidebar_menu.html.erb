@@ -1,0 +1,140 @@
+<!-- Sidebar Menu Button (Fixed) -->
+<div class="fixed-menu" style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+  <!-- Menu Button -->
+  <button
+    id="sidebar-menu-btn"
+    class="btn btn-primary shadow-lg rounded-circle d-flex align-items-center justify-center p-3"
+    style="width: 60px; height: 60px; background: linear-gradient(90deg, rgba(43,127,255,1) 0%, rgba(152,16,250,1) 100%); border: none;"
+    onclick="toggleSidebarMenu()"
+  >
+    <i class="bi bi-list text-white" style="font-size: 28px;"></i>
+  </button>
+</div>
+
+<!-- Sidebar Menu Panel -->
+<div
+  id="sidebar-menu-panel"
+  class="sidebar-menu-panel shadow-lg"
+  style="
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    z-index: 999;
+    transition: left 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
+  "
+>
+  <!-- Close Button -->
+  <button
+    onclick="toggleSidebarMenu()"
+    class="btn btn-sm btn-light float-end mb-3"
+    style="border: none;"
+  >
+    <i class="bi bi-x-lg"></i>
+  </button>
+
+  <!-- Menu Header -->
+  <div class="mb-4 mt-2">
+    <h3 class="fw-bold mb-1" style="background: linear-gradient(90deg, rgba(43,127,255,1) 0%, rgba(152,16,250,1) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+      FamilyTasks
+    </h3>
+    <p class="text-muted small">Menu de navigation</p>
+  </div>
+
+  <!-- Menu Items -->
+  <div class="d-flex flex-column gap-2">
+    <%= link_to families_path, class: "btn btn-light text-start d-flex align-items-center gap-3 p-3 #{'bg-primary text-white' if current_page?(families_path)}", style: "border-radius: 12px;" do %>
+      <i class="bi bi-people-fill fs-5" style="color: <%= current_page?(families_path) ? 'white' : '#2b7fff' %>;"></i>
+      <span class="fw-medium">Familles</span>
+    <% end %>
+
+    <%= link_to calendar_path, class: "btn btn-light text-start d-flex align-items-center gap-3 p-3 #{'bg-primary text-white' if current_page?(calendar_path)}", style: "border-radius: 12px;" do %>
+      <i class="bi bi-calendar-event fs-5" style="color: <%= current_page?(calendar_path) ? 'white' : '#00c950' %>;"></i>
+      <span class="fw-medium">Calendrier</span>
+    <% end %>
+
+    <%= link_to vaccines_path, class: "btn btn-light text-start d-flex align-items-center gap-3 p-3 #{'bg-primary text-white' if current_page?(vaccines_path)}", style: "border-radius: 12px;" do %>
+      <i class="bi bi-shield-fill-plus fs-5" style="color: <%= current_page?(vaccines_path) ? 'white' : '#dc3545' %>;"></i>
+      <span class="fw-medium">Vaccins</span>
+    <% end %>
+
+    <%= link_to ai_assistant_path, class: "btn btn-light text-start d-flex align-items-center gap-3 p-3 #{'bg-primary text-white' if current_page?(ai_assistant_path)}", style: "border-radius: 12px;" do %>
+      <i class="bi bi-stars fs-5" style="color: <%= current_page?(ai_assistant_path) ? 'white' : '#ffc107' %>;"></i>
+      <span class="fw-medium">Assistant IA</span>
+    <% end %>
+  </div>
+
+  <!-- User Section -->
+  <% if user_signed_in? %>
+    <div class="mt-4 pt-4 border-top">
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; font-size: 16px; font-weight: bold;">
+          <%= current_user.email[0].upcase %>
+        </div>
+        <div class="flex-grow-1">
+          <small class="text-muted d-block text-truncate" style="max-width: 150px;"><%= current_user.email %></small>
+        </div>
+      </div>
+
+      <%= link_to edit_user_registration_path, class: "btn btn-outline-primary btn-sm w-100 mb-2" do %>
+        <i class="bi bi-person-fill me-2"></i>Mon profil
+      <% end %>
+
+      <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-outline-danger btn-sm w-100" do %>
+        <i class="bi bi-box-arrow-right me-2"></i>Se déconnecter
+      <% end %>
+    </div>
+  <% else %>
+    <div class="mt-4 pt-4 border-top">
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-outline-primary btn-sm w-100 mb-2" %>
+      <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-primary btn-sm w-100" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Overlay -->
+<div
+  id="sidebar-overlay"
+  class="sidebar-overlay"
+  style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+  "
+  onclick="toggleSidebarMenu()"
+></div>
+
+<script>
+function toggleSidebarMenu() {
+  const panel = document.getElementById('sidebar-menu-panel');
+  const overlay = document.getElementById('sidebar-overlay');
+  const isOpen = panel.style.left === '0px';
+
+  if (isOpen) {
+    panel.style.left = '-300px';
+    overlay.style.display = 'none';
+  } else {
+    panel.style.left = '0px';
+    overlay.style.display = 'block';
+  }
+}
+
+// Close menu on escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    const panel = document.getElementById('sidebar-menu-panel');
+    if (panel.style.left === '0px') {
+      toggleSidebarMenu();
+    }
+  }
+});
+</script>

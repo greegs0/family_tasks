@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      /** @type {import('tailwindcss').Config} */
+      tailwind.config = {
+        theme: {
+          extend: {},
+        },
+        plugins: [],
+      };
+    </script>
+  </head>
+  <body>
+    <div class="bg-white w-full min-h-screen relative">
+      <div class="flex flex-col min-h-screen items-start pt-[76px] pb-0 px-0 bg-gray-50">
+        <div class="flex flex-col items-start gap-6 pt-6 pb-12 px-4 sm:px-6 md:px-8 lg:px-12 relative w-full bg-gray-50 max-w-7xl mx-auto">
+          <div
+            class="gap-8 md:gap-12 bg-white border border-solid border-[#0000001a] flex flex-col items-start p-6 relative self-stretch w-full rounded-[14px]"
+          >
+            <div class="flex w-full items-start justify-between relative flex-wrap gap-4">
+              <div class="flex flex-col items-start gap-2 relative">
+                <div class="[font-family:'Inter',Helvetica] font-medium text-neutral-950 text-xl md:text-2xl tracking-[0.07px] leading-9">
+                  Famille Dupont
+                </div>
+                <p class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm md:text-base tracking-[-0.31px] leading-6">
+                  12 rue de la Paix, 75001 Paris
+                </p>
+              </div>
+              <button
+                id="edit-family-btn"
+                class="all-[unset] box-border flex items-center gap-2 px-4 py-2 h-8 bg-white rounded-lg border border-solid border-[#0000001a] cursor-pointer"
+              >
+                <img
+                  class="w-4 h-4"
+                  src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-16.svg"
+                />
+                <div
+                  class="[font-family:'Inter',Helvetica] font-medium text-neutral-950 text-sm tracking-[-0.15px] leading-5"
+                >
+                  Modifier
+                </div>
+              </button>
+            </div>
+            <div class="relative w-full border-t [border-top-style:solid] border-[#0000001a] pt-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+              <div class="flex flex-col items-start gap-1">
+                <div class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm tracking-[-0.15px] leading-5">
+                  Membres
+                </div>
+                <div class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-2xl tracking-[0.07px] leading-8">
+                  3
+                </div>
+              </div>
+              <div class="flex flex-col items-start gap-1">
+                <div class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm tracking-[-0.15px] leading-5">
+                  Créée le
+                </div>
+                <div class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6">
+                  12/01/2025
+                </div>
+              </div>
+              <div class="flex flex-col items-start gap-1">
+                <div class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm tracking-[-0.15px] leading-5">
+                  Code postal
+                </div>
+                <div class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6">
+                  75001
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
+            <div class="flex flex-col items-start gap-6 lg:col-span-1">
+              <div
+                class="gap-6 md:gap-10 bg-white border border-solid border-[#0000001a] flex flex-col items-start p-6 relative self-stretch w-full rounded-[14px]"
+              >
+                <div class="relative w-full">
+                  <div
+                    class="top-0 left-0 font-normal text-base tracking-[-0.31px] leading-6 absolute [font-family:'Inter',Helvetica] text-neutral-950 whitespace-nowrap"
+                  >
+                    Calendrier
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col w-[282.33px] items-start pl-[13px] pr-[45.33px] pt-[13px] pb-px relative flex-1 grow rounded-lg border border-solid border-[#0000001a]"
+                >
+                  <div class="relative self-stretch w-full h-[299.2px]">
+                    <div class="absolute top-10 left-0 w-56 h-[259px] flex flex-col">
+                      <div class="w-56 flex">
+                        <div class="flex w-56 h-[19.2px] relative items-start">
+                          <div class="relative w-8 h-[19.2px] rounded-lg">
+                            <div
+                              class="absolute top-0 left-0 [font-family:'Inter',Helvetica] font-normal text-[#717182] text-[12.8px] tracking-[-0.06px] leading-[19.2px] whitespace-nowrap"
+                            >
+                              Su
+                            </div>
+                          </div>
+                          <div class="relative w-8 h-[19.2px] rounded-lg">
+                            <div
+                              class="absolute top-0 left-0 [font-family:'Inter',Helvetica] font-normal text-[#717182] text-[12.8px] tracking-[-0.06px] leading-[19.2px] whitespace-nowrap"
+                            >
+                              Mo
+                            </div>
+                          </div>
+                          <div class="relative w-8 h-[19.2px] rounded-lg">
+                            <div
+                              class="absolute top-0 left-0 [font-family:'Inter',Helvetica] font-normal text-[#717182] text-[12.8px] tracking-[-0.06px] leading-[19.2px] whitespace-nowrap"
+                            >
+                              Tu
+                            </div>
+                          </div>
+                          <div class="relative w-8 h-[19.2px] rounded-lg">
+                            <div
+                              class="absolute top-0 left-0 [font-family:'Inter',Helvetica] font-normal text-[#717182] text-[12.8px] tracking-[-0.06px] leading-[19.2px] whitespace-nowrap"
+                            >
+                              We
+                            </div>
+                          </div>
+                          <div class="relative w-8 h-[19.2px] rounded-lg">
+                            <div
+                              class="absolute top-0 left-0 [font-family:'Inter',Helvetica] font-normal text-[#717182] text-[12.8px] tracking-[-0.06px] leading-[19.2px] whitespace-nowrap"
+                            >
+                              Th
+                            </div>
+                          </div>
+                          <div class="relative w-8 h-[19.2px] rounded-lg">
+                            <div
+                              class="absolute top-0 left-0 [font-family:'Inter',Helvetica] font-normal text-[#717182] text-[12.8px] tracking-[-0.06px] leading-[19.2px] whitespace-nowrap"
+                            >
+                              Fr
+                            </div>
+                          </div>
+                          <div class="relative flex-1 grow h-[19.2px] rounded-lg">
+                            <div
+                              class="absolute top-0 left-0 [font-family:'Inter',Helvetica] font-normal text-[#717182] text-[12.8px] tracking-[-0.06px] leading-[19.2px] whitespace-nowrap"
+                            >
+                              Sa
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="h-60 gap-2 flex flex-col">
+                        <div class="mt-2 w-56 flex">
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[7px] text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                26
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                27
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[7px] text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                28
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[7px] text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                29
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[7px] text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                30
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[9px] text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                31
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[13px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                1
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="w-56 flex">
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                2
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                3
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                4
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                5
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                6
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                7
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                8
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="w-56 flex">
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                9
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                10
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2.5 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                11
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[9px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                12
+                              </div>
+                            </button>
+                          </div>
+                          <div class="flex w-8 h-8 relative flex-col items-start bg-[#e9ebef] rounded-lg">
+                            <button
+                              class="all-[unset] box-border relative self-stretch w-full h-8 bg-[#030213] rounded-lg"
+                            >
+                              <div
+                                class="top-1.5 left-[9px] text-white text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                13
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                14
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[9px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                15
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="w-56 flex">
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                16
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[9px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                17
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                18
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                19
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                20
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[9px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                21
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                22
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="w-56 flex">
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                23
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                24
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                25
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[7px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                26
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-2 text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                27
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[7px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                28
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[7px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                29
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="w-56 flex">
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[7px] text-neutral-950 text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                30
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-[13px] text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                1
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                2
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                3
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                4
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                5
+                              </div>
+                            </button>
+                          </div>
+                          <div class="w-8 h-8 relative items-start flex flex-col">
+                            <button class="all-[unset] box-border relative self-stretch w-full h-8 rounded-lg">
+                              <div
+                                class="top-1.5 left-3 text-[#717182] text-sm tracking-[-0.15px] leading-5 absolute [font-family:'Inter',Helvetica] font-normal whitespace-nowrap"
+                              >
+                                6
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="absolute top-0 left-0 w-56 h-6 flex">
+                      <img class="w-7 h-7 relative ml-1" src="https://c.animaapp.com/mhxfchwloC97ck/img/button.svg" />
+                      <div class="mt-1 w-[106.3px] ml-[26.8px] flex">
+                        <div
+                          class="mt-[0.5px] w-[107px] h-5 [font-family:'Inter',Helvetica] font-medium text-neutral-950 text-sm tracking-[-0.15px] leading-5 whitespace-nowrap"
+                        >
+                          November 2025
+                        </div>
+                      </div>
+                      <img
+                        class="w-7 h-7 relative ml-[26.9px]"
+                        src="https://c.animaapp.com/mhxfchwloC97ck/img/button-1.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col w-[282.33px] h-[177px] items-start gap-2 pt-[17px] pb-0 px-0 relative border-t [border-top-style:solid] border-[#0000001a]"
+                >
+                  <div class="relative self-stretch w-full h-5">
+                    <div
+                      class="absolute top-px left-0 [font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm tracking-[-0.15px] leading-5 whitespace-nowrap"
+                    >
+                      Événements à venir
+                    </div>
+                  </div>
+                  <div class="flex flex-col h-[132px] items-start gap-2 relative self-stretch w-full">
+                    <div
+                      class="flex flex-col h-[62px] items-start pt-[13px] pb-px px-[13px] relative self-stretch w-full bg-purple-50 rounded-[10px] border border-solid border-[#e9d4ff]"
+                    >
+                      <div class="relative self-stretch w-full h-5">
+                        <div
+                          class="absolute top-px left-0 [font-family:'Inter',Helvetica] font-normal text-[#59168b] text-sm tracking-[-0.15px] leading-5 whitespace-nowrap"
+                        >
+                          🎄 Vacances de Noël
+                        </div>
+                      </div>
+                      <div class="relative self-stretch w-full h-4">
+                        <p
+                          class="top-px font-normal text-[#8200da] text-xs tracking-[0] leading-4 absolute left-0 [font-family:'Inter',Helvetica] whitespace-nowrap"
+                        >
+                          23 déc - 6 jan
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col h-[62px] items-start pt-[13px] pb-px px-[13px] relative self-stretch w-full bg-green-50 rounded-[10px] border border-solid border-[#b8f7cf]"
+                    >
+                      <div class="relative self-stretch w-full h-5">
+                        <div
+                          class="absolute top-px left-0 [font-family:'Inter',Helvetica] font-normal text-[#0d532b] text-sm tracking-[-0.15px] leading-5 whitespace-nowrap"
+                        >
+                          💉 Rappel vaccin Sophie
+                        </div>
+                      </div>
+                      <div class="relative self-stretch w-full h-4">
+                        <div
+                          class="absolute top-px left-0 [font-family:'Inter',Helvetica] font-normal text-[#008235] text-xs tracking-[0] leading-4 whitespace-nowrap"
+                        >
+                          Mars 2025
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="gap-6 md:gap-10 bg-white border border-solid border-[#0000001a] flex flex-col items-start p-6 relative self-stretch w-full rounded-[14px]"
+              >
+                <div class="relative w-full">
+                  <div
+                    class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6"
+                  >
+                    Actions rapides
+                  </div>
+                </div>
+                <div class="flex flex-col w-full items-start gap-3 relative">
+                  <button
+                    id="calendar-btn"
+                    class="all-[unset] box-border relative self-stretch w-full h-[68px] rounded-lg [background:linear-gradient(135deg,rgba(173,70,255,1)_0%,rgba(152,16,250,1)_100%)] cursor-pointer flex items-center gap-3 p-4"
+                  >
+                    <img
+                      class="w-4 h-4"
+                      src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-23.svg"
+                    />
+                    <div class="flex flex-col items-start">
+                      <div class="[font-family:'Inter',Helvetica] font-medium text-white text-sm tracking-[-0.15px] leading-5">
+                        Calendrier vacances
+                      </div>
+                      <div class="[font-family:'Inter',Helvetica] font-medium text-[#f2e7fe] text-xs tracking-[0] leading-4">
+                        Zone A - Paris
+                      </div>
+                    </div>
+                  </button>
+                  <button
+                    id="vaccines-btn"
+                    class="all-[unset] box-border relative self-stretch w-full h-[68px] rounded-lg [background:linear-gradient(135deg,rgba(0,201,80,1)_0%,rgba(0,166,62,1)_100%)] cursor-pointer flex items-center gap-3 p-4"
+                  >
+                    <img
+                      class="w-4 h-4"
+                      src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-4.svg"
+                    />
+                    <div class="flex flex-col items-start">
+                      <div class="[font-family:'Inter',Helvetica] font-medium text-white text-sm tracking-[-0.15px] leading-5">
+                        Rappels vaccins
+                      </div>
+                      <div class="[font-family:'Inter',Helvetica] font-medium text-[#dbfbe6] text-xs tracking-[0] leading-4">
+                        3 membres
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-start gap-6 lg:col-span-2">
+              <div
+                class="gap-8 md:gap-12 bg-white border border-solid border-[#0000001a] flex flex-col items-start p-6 relative self-stretch w-full rounded-[14px]"
+              >
+                <div class="flex w-full items-center justify-between relative flex-wrap gap-4">
+                  <div class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6">
+                    Membres de la famille
+                  </div>
+                  <button id="add-member-dashboard-btn" class="all-[unset] box-border flex items-center gap-2 px-4 py-2 h-9 bg-[#030213] rounded-lg cursor-pointer">
+                    <img
+                      class="w-4 h-4"
+                      src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-8.svg"
+                    />
+                    <div
+                      class="[font-family:'Inter',Helvetica] font-medium text-white text-sm tracking-[-0.15px] leading-5"
+                    >
+                      Ajouter un membre
+                    </div>
+                  </button>
+                </div>
+                <div class="flex flex-col w-full items-start gap-4 relative">
+                  <div id="dashboard-members-list" class="flex flex-col w-full items-start gap-4 relative">
+                    <!-- Members will be dynamically rendered here -->
+                  </div>
+                </div>
+                <div class="relative w-full border-t [border-top-style:solid] border-[#0000001a] pt-6">
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                  <div
+                    class="flex flex-col items-start gap-1 p-4 bg-blue-50 rounded-[10px]"
+                  >
+                    <div class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-2xl text-center tracking-[0.07px] leading-8 w-full">
+                      2
+                    </div>
+                    <div class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm text-center tracking-[-0.15px] leading-5 w-full">
+                      Adultes
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col items-start gap-1 p-4 bg-green-50 rounded-[10px]"
+                  >
+                    <div class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-2xl text-center tracking-[0.07px] leading-8 w-full">
+                      1
+                    </div>
+                    <div class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm text-center tracking-[-0.15px] leading-5 w-full">
+                      Enfant
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col items-start gap-1 p-4 bg-purple-50 rounded-[10px]"
+                  >
+                    <div class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-2xl text-center tracking-[0.07px] leading-8 w-full">
+                      1
+                    </div>
+                    <div class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm text-center tracking-[-0.15px] leading-5 w-full">
+                      Scolarisé
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="gap-6 md:gap-10 border-2 border-solid border-[#e9d4ff] [background:linear-gradient(135deg,rgba(250,245,255,1)_0%,rgba(239,246,255,1)_100%)] flex flex-col items-start p-6 relative self-stretch w-full rounded-[14px] min-h-[600px]"
+              >
+                <div class="flex flex-col w-full items-start gap-2 relative">
+                  <div class="relative self-stretch w-full h-6">
+                    <img
+                      class="absolute top-0 left-0 w-6 h-6"
+                      src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-9.svg"
+                    />
+                    <div
+                      class="absolute top-0 left-8 font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6 [font-family:'Inter',Helvetica] whitespace-nowrap"
+                    >
+                      Assistant IA Familial
+                    </div>
+                  </div>
+                  <div class="h-5 relative self-stretch w-full">
+                    <p
+                      class="absolute top-px left-0 [font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm tracking-[-0.15px] leading-5 whitespace-nowrap"
+                    >
+                      Posez vos questions sur les vacances, vaccins, activités familiales...
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col w-full items-start pt-[17px] pb-px px-[17px] relative bg-white rounded-[10px] overflow-hidden border border-solid border-[#e9d4ff] min-h-[200px]"
+                >
+                  <div class="flex items-start gap-3 relative self-stretch w-full">
+                    <img class="w-8 h-8 flex-shrink-0" src="https://c.animaapp.com/mhxfchwloC97ck/img/container-1.svg" />
+                    <div
+                      class="flex flex-col items-start p-4 relative flex-1 bg-purple-50 rounded-[10px] border border-solid border-[#e9d4ff]"
+                    >
+                      <p
+                        class="[font-family:'Inter',Helvetica] font-normal text-[#354152] text-sm tracking-[-0.15px] leading-5"
+                      >
+                        👋 Bonjour ! Je suis votre assistant familial. Je peux vous aider à planifier vos vacances,
+                        gérer les rappels de vaccins, suggérer des activités, et répondre à toutes vos questions
+                        familiales.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col w-full items-start gap-2 relative">
+                  <div class="relative self-stretch w-full h-4">
+                    <p
+                      class="absolute top-px left-0 [font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs tracking-[0] leading-4 whitespace-nowrap"
+                    >
+                      💡 Suggestions de questions :
+                    </p>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
+                    <div
+                      class="flex flex-col items-start gap-1 p-3 bg-white rounded-[10px] border border-solid border-[#e9d4ff] cursor-pointer hover:bg-purple-50 transition-colors"
+                    >
+                      <p class="[font-family:'Inter',Helvetica] font-normal text-[#101727] text-sm tracking-[-0.15px] leading-5">
+                        🏖️ Que faire pendant les vacances ?
+                      </p>
+                      <div class="[font-family:'Inter',Helvetica] font-normal text-[#697282] text-xs tracking-[0] leading-4">
+                        Suggestions d&#39;activités familiales
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col items-start gap-1 p-3 bg-white rounded-[10px] border border-solid border-[#e9d4ff] cursor-pointer hover:bg-purple-50 transition-colors"
+                    >
+                      <p class="[font-family:'Inter',Helvetica] font-normal text-[#101727] text-sm tracking-[-0.15px] leading-5">
+                        💉 Précautions avant les vaccins
+                      </p>
+                      <div class="[font-family:'Inter',Helvetica] font-normal text-[#697282] text-xs tracking-[0] leading-4">
+                        Recommandations santé
+                      </div>
+                    </div>
+                    <div
+                      class="flex flex-col items-start gap-1 p-3 bg-white rounded-[10px] border border-solid border-[#e9d4ff] cursor-pointer hover:bg-purple-50 transition-colors"
+                    >
+                      <p class="[font-family:'Inter',Helvetica] font-normal text-[#101727] text-sm tracking-[-0.15px] leading-5">
+                        📅 Calendrier des vacances 2025
+                      </p>
+                      <p class="[font-family:'Inter',Helvetica] font-normal text-[#697282] text-xs tracking-[0] leading-4">
+                        Dates pour la Zone A
+                      </p>
+                    </div>
+                    <div
+                      class="flex flex-col items-start gap-1 p-3 bg-white rounded-[10px] border border-solid border-[#e9d4ff] cursor-pointer hover:bg-purple-50 transition-colors"
+                    >
+                      <div class="[font-family:'Inter',Helvetica] font-normal text-[#101727] text-sm tracking-[-0.15px] leading-5">
+                        🎯 Rappels de vaccins
+                      </div>
+                      <div class="[font-family:'Inter',Helvetica] font-normal text-[#697282] text-xs tracking-[0] leading-4">
+                        Pour les 3 membres
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-full items-start gap-2 relative">
+                  <div
+                    contenteditable="true"
+                    class="flex h-[50px] items-center px-4 py-3 relative flex-1 rounded-[10px] overflow-hidden border border-solid border-[#e9d4ff] [font-family:'Inter',Helvetica] font-normal text-[#0a0a0a80] text-base tracking-[-0.31px] leading-[normal] focus:outline-none focus:border-[#ac46ff]"
+                    data-placeholder="Posez votre question..."
+                  >
+                    Posez votre question...
+                  </div>
+                  <button
+                    class="all-[unset] box-border flex items-center justify-center gap-2 px-6 py-2 h-[50px] relative rounded-lg [background:linear-gradient(135deg,rgba(173,70,255,1)_0%,rgba(152,16,250,1)_100%)] cursor-pointer hover:opacity-90 transition-opacity"
+                  >
+                    <div
+                      class="[font-family:'Inter',Helvetica] font-medium text-white text-sm tracking-[-0.15px] leading-5 whitespace-nowrap"
+                    >
+                      Envoyer
+                    </div>
+                  </button>
+                </div>
+                <div
+                  class="flex flex-col w-full items-start p-3 relative bg-white rounded-[10px] border border-solid border-[#e9d4ff]"
+                >
+                  <div class="relative w-full">
+                    <p class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs tracking-[0] leading-4">
+                      🤖 <span class="font-bold">Assistant IA contextualisé</span> • Utilise les informations de votre famille (3 membres, Zone A - Paris)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav
+        class="flex flex-col w-full items-start py-3 px-4 sm:px-6 md:px-8 fixed top-0 left-0 right-0 bg-white shadow-sm z-50"
+      >
+        <div class="flex items-center justify-between w-full max-w-7xl mx-auto h-12">
+          <!-- Left section -->
+          <div class="flex items-center gap-2 flex-1">
+            <button id="back-btn" class="all-[unset] box-border flex items-center gap-2 px-3 py-2 h-10 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+              <img class="w-4 h-4" src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-3.svg" />
+              <div
+                class="[font-family:'Inter',Helvetica] font-medium text-neutral-950 text-sm tracking-[-0.15px] leading-5 hidden sm:block"
+              >
+                Retour
+              </div>
+            </button>
+          </div>
+
+          <!-- Center section - Logo -->
+          <div class="flex items-center gap-3 absolute left-1/2 transform -translate-x-1/2">
+            <img class="w-10 h-10" src="https://c.animaapp.com/mhxfchwloC97ck/img/container.svg" />
+            <div class="[font-family:'Inter',Helvetica] font-semibold text-neutral-950 text-lg tracking-[-0.31px] leading-6 hidden sm:block">
+              Family Tasks
+            </div>
+          </div>
+
+          <!-- Right section - Navigation -->
+          <div class="flex items-center gap-1 flex-1 justify-end">
+            <button id="nav-calendar-btn" class="all-[unset] box-border flex items-center gap-2 px-3 py-2 h-10 rounded-lg cursor-pointer hover:bg-purple-50 transition-colors group">
+              <img
+                class="w-4 h-4"
+                src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-11.svg"
+              />
+              <div
+                class="[font-family:'Inter',Helvetica] font-medium text-neutral-950 text-sm tracking-[-0.15px] leading-5 hidden lg:block group-hover:text-purple-700"
+              >
+                Calendrier
+              </div>
+            </button>
+            <button id="nav-family-btn" class="all-[unset] box-border flex items-center gap-2 px-3 py-2 h-10 rounded-lg cursor-pointer hover:bg-purple-50 transition-colors group">
+              <img class="w-4 h-4" src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-1.svg" />
+              <div
+                class="[font-family:'Inter',Helvetica] font-medium text-neutral-950 text-sm tracking-[-0.15px] leading-5 hidden lg:block group-hover:text-purple-700"
+              >
+                Famille
+              </div>
+            </button>
+            <button id="nav-chat-btn" class="all-[unset] box-border flex items-center gap-2 px-3 py-2 h-10 rounded-lg cursor-pointer hover:bg-purple-50 transition-colors group">
+              <img class="w-4 h-4" src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-5.svg" />
+              <div
+                class="[font-family:'Inter',Helvetica] font-medium text-neutral-950 text-sm tracking-[-0.15px] leading-5 hidden lg:block group-hover:text-purple-700"
+              >
+                Chat
+              </div>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

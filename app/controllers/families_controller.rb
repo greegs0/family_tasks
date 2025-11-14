@@ -1,5 +1,10 @@
 class FamiliesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :create]
   before_action :set_family, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @family = Family.new
+  end
 
   def show
     # set_family

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Family Tasks - Votre assistant familial intelligent</title>
+    <link rel="stylesheet" href="globals.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      /** @type {import('tailwindcss').Config} */
+      tailwind.config = {
+        theme: {
+          extend: {},
+        },
+        plugins: [],
+      };
+    </script>
+  </head>
+  <body>
+    <main class="flex flex-col min-h-screen items-start py-6 px-4 sm:px-6 md:px-12 lg:px-24 relative bg-white">
+      <div class="relative w-full max-w-7xl mx-auto">
+        <section class="relative w-full mb-8">
+          <div class="flex flex-col items-center w-full mb-8 md:mb-12">
+            <img
+              class="w-20 h-20 md:w-28 md:h-28 lg:w-[120px] lg:h-[120px] mb-4"
+              src="https://c.animaapp.com/mhxfchwloC97ck/img/container-6.svg"
+              alt="Family Tasks Logo"
+              role="img"
+            />
+            <h1
+              class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base md:text-lg text-center tracking-[-0.31px] leading-6 mb-2"
+            >
+              Family Tasks
+            </h1>
+            <p
+              class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-lg md:text-xl text-center tracking-[-0.45px] leading-7"
+            >
+              Votre assistant familial intelligent
+            </p>
+          </div>
+          <section
+            class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 w-full mb-8"
+          >
+          <article
+            class="flex flex-col w-full items-start gap-8 md:gap-12 p-6 md:p-8 bg-white rounded-[14px] border border-solid border-[#0000001a]"
+          >
+            <h2 class="relative w-full">
+              <span
+                class="block [font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6"
+              >
+                Créer ma famille
+              </span>
+            </h2>
+            <form
+              id="create-family-form"
+              class="flex flex-col w-full items-start gap-5 relative"
+              aria-label="Formulaire de création de famille"
+            >
+              <div class="flex flex-col items-start gap-2 relative self-stretch w-full">
+                <label class="relative self-stretch w-full block">
+                  <span
+                    class="block [font-family:'Inter',Helvetica] font-normal text-[#354152] text-base tracking-[-0.31px] leading-6"
+                  >
+                    Nom de la famille *
+                  </span>
+                </label>
+                <div
+                  class="flex h-12 items-center px-4 py-0 relative self-stretch w-full bg-white rounded-[10px] overflow-hidden border border-solid border-[#d0d5db]"
+                >
+                  <input
+                    type="text"
+                    id="family-name"
+                    name="family-name"
+                    placeholder="Famille Dupont"
+                    required
+                    aria-required="true"
+                    class="relative w-full text-[#0a0a0a80] leading-[normal] [font-family:'Inter',Helvetica] font-normal text-base tracking-[-0.31px] whitespace-nowrap bg-transparent border-0 outline-none"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-col items-start gap-2 relative self-stretch w-full">
+                <label class="relative self-stretch w-full block">
+                  <span
+                    class="block [font-family:'Inter',Helvetica] font-normal text-[#354152] text-base tracking-[-0.31px] leading-6"
+                  >
+                    Adresse mail *
+                  </span>
+                </label>
+                <div
+                  class="flex h-12 items-center px-4 py-0 relative self-stretch w-full bg-white rounded-[10px] overflow-hidden border border-solid border-[#d0d5db]"
+                >
+                  <input
+                    type="email"
+                    id="family-email"
+                    name="family-email"
+                    placeholder="famille.dupont@example.com"
+                    required
+                    aria-required="true"
+                    class="relative w-full [font-family:'Inter',Helvetica] font-normal text-[#0a0a0a80] text-base tracking-[-0.31px] leading-[normal] whitespace-nowrap bg-transparent border-0 outline-none"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-col items-start gap-2 relative self-stretch w-full">
+                <label class="relative self-stretch w-full block">
+                  <span
+                    class="block [font-family:'Inter',Helvetica] font-normal text-[#354152] text-base tracking-[-0.31px] leading-6"
+                  >
+                    Code postal *
+                  </span>
+                </label>
+                <div
+                  class="flex h-12 items-center px-4 py-0 relative self-stretch w-full bg-white rounded-[10px] overflow-hidden border border-solid border-[#d0d5db]"
+                >
+                  <input
+                    type="text"
+                    id="postal-code"
+                    name="postal-code"
+                    placeholder="75001"
+                    required
+                    aria-required="true"
+                    pattern="[0-9]{5}"
+                    aria-describedby="postal-code-help"
+                    class="relative w-full [font-family:'Inter',Helvetica] font-normal text-[#0a0a0a80] text-base tracking-[-0.31px] leading-[normal] whitespace-nowrap bg-transparent border-0 outline-none"
+                  />
+                </div>
+                <div class="relative self-stretch w-full">
+                  <p
+                    id="postal-code-help"
+                    class="[font-family:'Inter',Helvetica] font-normal text-[#697282] text-xs tracking-[0] leading-4"
+                  >
+                    Utilisé pour déterminer votre zone de vacances scolaires
+                  </p>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="all-[unset] box-border h-12 rounded-lg [background:linear-gradient(90deg,rgba(43,127,255,1)_0%,rgba(152,16,250,1)_100%)] relative self-stretch w-full cursor-pointer flex items-center justify-center gap-2"
+                aria-label="Créer ma famille"
+              >
+                <span
+                  class="[font-family:'Inter',Helvetica] font-medium text-white text-sm tracking-[-0.15px] leading-5"
+                >
+                  Créer ma famille
+                </span>
+                <img
+                  class="w-4 h-4"
+                  src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-7.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+            </form>
+            <aside
+              class="relative w-full p-4 bg-blue-50 rounded-[10px] border border-solid border-[#bddaff]"
+              role="note"
+              aria-label="Information importante"
+            >
+              <p
+                class="[font-family:'Inter',Helvetica] font-normal text-[#193bb8] text-sm tracking-[-0.15px] leading-5"
+              >
+                ℹ️ Une seule famille par compte utilisateur
+              </p>
+            </aside>
+          </article>
+          <article
+            class="flex flex-col w-full items-start gap-8 md:gap-12 p-6 md:p-8 bg-white rounded-[14px] border border-solid border-[#0000001a]"
+          >
+            <h2 class="relative w-full">
+              <span
+                class="block [font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6"
+              >
+                Accéder à ma famille
+              </span>
+            </h2>
+            <div class="relative w-full">
+              <div class="relative w-full mb-6">
+                <div class="relative w-full">
+                  <label for="family-search" class="sr-only">Rechercher une famille</label>
+                  <input
+                    id="family-search"
+                    name="family-search"
+                    class="w-full h-12 pl-12 pr-4 py-0 bg-white rounded-[10px] overflow-hidden border border-solid border-[#d0d5db] [font-family:'Inter',Helvetica] font-normal text-[#0a0a0a80] text-base tracking-[-0.31px] leading-[normal]"
+                    placeholder="Rechercher par nom, email ou code postal..."
+                    type="search"
+                    aria-label="Rechercher par nom, email ou code postal"
+                  />
+                  <img
+                    class="absolute top-3.5 left-4 w-5 h-5 pointer-events-none"
+                    src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-30.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+              <ul
+                class="flex flex-col w-full items-start gap-3 pl-0 py-0 max-h-96 overflow-y-auto"
+                role="list"
+                aria-label="Liste des familles"
+              >
+                <li class="bg-white rounded-[10px] border border-solid border relative w-full p-4">
+                  <button
+                    type="button"
+                    class="flex w-full items-center justify-between bg-transparent border-0 cursor-pointer p-0 mb-3"
+                    aria-label="Accéder à la famille Dupont"
+                  >
+                    <div class="flex flex-1 items-center gap-3 relative min-w-0">
+                      <div
+                        class="flex w-10 h-10 flex-shrink-0 items-center justify-center rounded-full [background:linear-gradient(135deg,rgba(5,223,114,1)_0%,rgba(0,166,62,1)_100%)]"
+                        aria-hidden="true"
+                      >
+                        <span
+                          class="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[-0.31px] leading-6"
+                        >
+                          F
+                        </span>
+                      </div>
+                      <div class="flex flex-col items-start flex-1 min-w-0">
+                        <div class="w-full">
+                          <span
+                            class="text-[#101727] leading-6 [font-family:'Inter',Helvetica] font-normal text-base tracking-[-0.31px] truncate block"
+                          >
+                            Famille Dupont
+                          </span>
+                        </div>
+                        <div class="w-full">
+                          <span
+                            class="[font-family:'Inter',Helvetica] font-normal text-[#697282] text-sm tracking-[-0.15px] leading-5 truncate block"
+                          >
+                            dupont@example.com
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <img
+                      class="w-5 h-5 flex-shrink-0"
+                      src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-17.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <div class="flex w-full items-center gap-4">
+                    <span
+                      class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs tracking-[0] leading-4"
+                      aria-label="Code postal 75001"
+                    >
+                      📍 75001
+                    </span>
+                    <span
+                      class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs tracking-[0] leading-4"
+                      aria-label="3 membres"
+                    >
+                      👥 3 membres
+                    </span>
+                  </div>
+                </li>
+                <li class="bg-white rounded-[10px] border border-solid border relative w-full p-4">
+                  <button
+                    type="button"
+                    class="flex w-full items-center justify-between bg-transparent border-0 cursor-pointer p-0 mb-3"
+                    aria-label="Accéder à la famille Martin"
+                  >
+                    <div class="flex flex-1 items-center gap-3 relative min-w-0">
+                      <div
+                        class="flex w-10 h-10 flex-shrink-0 items-center justify-center rounded-full [background:linear-gradient(135deg,rgba(5,223,114,1)_0%,rgba(0,166,62,1)_100%)]"
+                        aria-hidden="true"
+                      >
+                        <span
+                          class="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[-0.31px] leading-6"
+                        >
+                          F
+                        </span>
+                      </div>
+                      <div class="flex flex-col items-start flex-1 min-w-0">
+                        <div class="w-full">
+                          <span
+                            class="text-[#101727] leading-6 [font-family:'Inter',Helvetica] font-normal text-base tracking-[-0.31px] truncate block"
+                          >
+                            Famille Martin
+                          </span>
+                        </div>
+                        <div class="w-full">
+                          <span
+                            class="[font-family:'Inter',Helvetica] font-normal text-[#697282] text-sm tracking-[-0.15px] leading-5 truncate block"
+                          >
+                            martin@example.com
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <img
+                      class="w-5 h-5 flex-shrink-0"
+                      src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-17.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <div class="flex w-full items-center gap-4">
+                    <span
+                      class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs tracking-[0] leading-4"
+                      aria-label="Code postal 69001"
+                    >
+                      📍 69001
+                    </span>
+                    <span
+                      class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs tracking-[0] leading-4"
+                      aria-label="4 membres"
+                    >
+                      👥 4 membres
+                    </span>
+                  </div>
+                </li>
+                <li class="bg-white rounded-[10px] border border-solid border relative w-full p-4">
+                  <button
+                    type="button"
+                    class="flex w-full items-center justify-between bg-transparent border-0 cursor-pointer p-0 mb-3"
+                    aria-label="Accéder à la famille Bernard"
+                  >
+                    <div class="flex flex-1 items-center gap-3 relative min-w-0">
+                      <div
+                        class="flex w-10 h-10 flex-shrink-0 items-center justify-center rounded-full [background:linear-gradient(135deg,rgba(5,223,114,1)_0%,rgba(0,166,62,1)_100%)]"
+                        aria-hidden="true"
+                      >
+                        <span
+                          class="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[-0.31px] leading-6"
+                        >
+                          F
+                        </span>
+                      </div>
+                      <div class="flex flex-col items-start flex-1 min-w-0">
+                        <div class="w-full">
+                          <span
+                            class="text-[#101727] leading-6 [font-family:'Inter',Helvetica] font-normal text-base tracking-[-0.31px] truncate block"
+                          >
+                            Famille Bernard
+                          </span>
+                        </div>
+                        <div class="w-full">
+                          <span
+                            class="[font-family:'Inter',Helvetica] font-normal text-[#697282] text-sm tracking-[-0.15px] leading-5 truncate block"
+                          >
+                            bernard@example.com
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <img
+                      class="w-5 h-5 flex-shrink-0"
+                      src="https://c.animaapp.com/mhxfchwloC97ck/img/icon-17.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <div class="flex w-full items-center gap-4">
+                    <span
+                      class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs tracking-[0] leading-4"
+                      aria-label="Code postal 13001"
+                    >
+                      📍 13001
+                    </span>
+                    <span
+                      class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-xs tracking-[0] leading-4"
+                      aria-label="2 membres"
+                    >
+                      👥 2 membres
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </article>
+          </section>
+
+          <section
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full"
+            aria-label="Fonctionnalités principales"
+          >
+            <article
+              class="flex flex-col items-start gap-3 p-6 bg-white rounded-[10px] border border-solid border-[#0000001a]"
+            >
+              <div class="flex items-start w-full">
+                <span
+                  class="w-full text-3xl md:text-4xl text-center [font-family:'Inter',Helvetica] font-normal text-neutral-950 tracking-[0.40px] leading-9"
+                  role="img"
+                  aria-label="Icône famille"
+                >
+                  👨‍👩‍👧‍👦
+                </span>
+              </div>
+              <h3 class="w-full text-center">
+                <span
+                  class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6"
+                >
+                  Gérez votre famille
+                </span>
+              </h3>
+              <div class="w-full">
+                <p
+                  class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm text-center tracking-[-0.15px] leading-5"
+                >
+                  Centralisez les informations de tous les membres
+                </p>
+              </div>
+            </article>
+            <article
+              class="flex flex-col items-start gap-3 p-6 bg-white rounded-[10px] border border-solid border-[#0000001a]"
+            >
+              <div class="flex items-start w-full">
+                <span
+                  class="w-full text-3xl md:text-4xl text-center [font-family:'Inter',Helvetica] font-normal text-neutral-950 tracking-[0.40px] leading-9"
+                  role="img"
+                  aria-label="Icône calendrier"
+                >
+                  📅
+                </span>
+              </div>
+              <h3 class="w-full text-center">
+                <span
+                  class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6"
+                >
+                  Calendrier intelligent
+                </span>
+              </h3>
+              <div class="w-full">
+                <p
+                  class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm text-center tracking-[-0.15px] leading-5"
+                >
+                  Vacances scolaires adaptées à votre zone
+                </p>
+              </div>
+            </article>
+            <article
+              class="flex flex-col items-start gap-3 p-6 bg-white rounded-[10px] border border-solid border-[#0000001a]"
+            >
+              <div class="flex items-start w-full">
+                <span
+                  class="w-full text-3xl md:text-4xl text-center [font-family:'Inter',Helvetica] font-normal text-neutral-950 tracking-[0.40px] leading-9"
+                  role="img"
+                  aria-label="Icône vaccin"
+                >
+                  💉
+                </span>
+              </div>
+              <h3 class="w-full text-center">
+                <span
+                  class="[font-family:'Inter',Helvetica] font-normal text-neutral-950 text-base tracking-[-0.31px] leading-6"
+                >
+                  Rappels vaccins
+                </span>
+              </h3>
+              <div class="w-full">
+                <p
+                  class="[font-family:'Inter',Helvetica] font-normal text-[#495565] text-sm text-center tracking-[-0.15px] leading-5"
+                >
+                  Suivi personnalisé selon l'âge de chacun
+                </p>
+              </div>
+            </article>
+          </section>
+        </section>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

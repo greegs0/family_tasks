@@ -1,15 +1,24 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "families#new"
 
-  resources :families, except: [:index, :new] do
+  # Root path - show family index or creation page
+  root to: "families#index"
+
+  resources :families do
     resources :members, only: [:index, :new, :create]
     resources :chats, only: [:index, :create]
   end
+
   resources :members, only: [:show, :edit, :update, :destroy]
+
   resources :chats, only: :show do
     resources :messages, only: :create
   end
+
+  # Pages routes
+  get '/assistant-ia', to: 'pages#ai_assistant', as: 'ai_assistant'
+  get '/calendrier', to: 'pages#calendar', as: 'calendar'
+  get '/vaccins', to: 'pages#vaccines', as: 'vaccines'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

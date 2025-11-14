@@ -8,11 +8,9 @@ class MessagesController < ApplicationController
     @anniversaires = @family.members.each do |member|
       member.birthday
     end
-
     @vaccines = @family.members.each do |member|
       member.birthday
     end
-
     if @Message.save!
       # J'instancie un nouveau chat RubyLLM
       @ruby_llm_chat = RubyLLM.chat
