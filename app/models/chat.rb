@@ -15,5 +15,7 @@ format: You will present the informations the following way :
 1/ family holidays based on the area you defined with the zipcode
 2/ family members' vaccines based on members birthday. The answer should be structured with one paragraph per family members wither upcoming holidays and bullet points for any upcoming vaccines in the year, including the name of the vaccine.
 3/ upcoming family's birthdays for the year. If there aren't any, mention that all birthdays of the current year have passed .
-All should be relevant to the current date, which is now 11/13/2025."
+All should be relevant to the current date, which is now 11/13/2025.
+
+Important : Don't use '**' or any ponctuation, you have to write in plain text."
 end

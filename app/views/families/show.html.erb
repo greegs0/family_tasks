@@ -195,21 +195,38 @@
               <div class="flex items-start gap-3 relative self-stretch w-full">
                 <div class="w-8 h-8 flex-shrink-0 rounded-full bg-gradient-to-br from-purple-400 to-purple-600"></div>
                 <div class="flex flex-col items-start p-4 relative flex-1 bg-purple-50 rounded-[10px] border border-solid border-[#e9d4ff]">
-                  <p class="[font-family:'Inter',Helvetica] font-normal text-[#354152] text-sm tracking-[-0.15px] leading-5">
-                    <% @family.chat.messages.each do |message| %>
-                      <% if message.role == "user" %>
-                        <span> <strong>User:</strong><%= message.content %></span>
-                      <% elsif message.role == "assistant" %>
-                        <span> <strong>Assistant:</strong><%= message.content %></span>
-                      <% elsif message.exist? == false %>
-                        Bonjour ! Je suis votre assistant familial. Je peux vous aider à planifier vos vacances, gérer les rappels de vaccins, suggérer des activités, et répondre à toutes vos questions familiales.
+                  <div class="chat-container">
+                    <div class="messages-box">
+                      <% @family.chat.messages.each do |message| %>
+                        <% if message.role == "user" %>
+                          <div class="message user-message">
+                            <strong>Vous :</strong> <%= message.content %>
+                          </div>
+                        <% elsif message.role == "assistant" %>
+                          <div class="message assistant-message">
+                            <strong>Assistant :</strong> <%= message.content %>
+                          </div>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                    <%= simple_form_for [@chat, @message] do |f| %>
-                      <%= f.input :content, placeholder: "Posez votre question :", label: false, input_html: { style: "background-color: #faf5ffff;" } %>
-                      <%= f.button :submit, "Demandez à l'assistant", class: "btn btn-outline-secondary"%>
-                    <% end %>
-                  </p>
+                      <% if @family.chat.messages.empty? %>
+                        <div class="message assistant-message intro-message">
+                          Bonjour ! Je suis votre assistant familial 👋
+                          Je peux vous aider à planifier vos vacances, gérer des rappels importants
+                          et organiser la vie de famille.
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class="chat-form mt-3">
+                      <%= simple_form_for [@chat, @message] do |f| %>
+                        <%= f.input :content,
+                                    placeholder: "Posez votre question...",
+                                    label: false,
+                                    input_html: { class: "chat-input" } %>
+
+                        <%= f.button :submit, "Envoyer", class: "btn btn-primary w-100 mt-2" %>
+                      <% end %>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
