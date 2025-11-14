@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
       response = @ruby_llm_chat.with_instructions(instructions).ask(@Message.content)
       @chat.messages.create(role: "assistant", content: response.content)
       # @chat.generate_title_from_first_message
-      redirect_to chat_path(@chat)
+      redirect_to family_path(@family)
     else
       render "chats/show"
     end
