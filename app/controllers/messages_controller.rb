@@ -2,21 +2,21 @@ class MessagesController < ApplicationController
   def create
     @chat = current_user.chats.find(params[:chat_id])
     @family = @chat.family
-    @Message = Message.new(message_params)
-    @Message.chat = @chat
-    @Message.role = "user"
+    @message = Message.new(message_params)
+    @message.chat = @chat
+    @message.role = "user"
     @anniversaires = @family.members.each do |member|
       member.birthday
     end
     @vaccines = @family.members.each do |member|
       member.birthday
     end
-    if @Message.save!
+    if @message.save!
       # J'instancie un nouveau chat RubyLLM
       @ruby_llm_chat = RubyLLM.chat
       # build_conversation_history
       # Je lui donne des instructions et je lui passe le message utilisateur- je stocke ça dans "response"
-      response = @ruby_llm_chat.with_instructions(instructions).ask(@Message.content)
+      response = @ruby_llm_chat.with_instructions(instructions).ask(@message.content)
       @chat.messages.create(role: "assistant", content: response.content)
       # @chat.generate_title_from_first_message
       redirect_to family_path(@family)

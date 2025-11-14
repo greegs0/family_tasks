@@ -196,7 +196,19 @@
                 <div class="w-8 h-8 flex-shrink-0 rounded-full bg-gradient-to-br from-purple-400 to-purple-600"></div>
                 <div class="flex flex-col items-start p-4 relative flex-1 bg-purple-50 rounded-[10px] border border-solid border-[#e9d4ff]">
                   <p class="[font-family:'Inter',Helvetica] font-normal text-[#354152] text-sm tracking-[-0.15px] leading-5">
-                    Bonjour ! Je suis votre assistant familial. Je peux vous aider à planifier vos vacances, gérer les rappels de vaccins, suggérer des activités, et répondre à toutes vos questions familiales.
+                    <% @family.chat.messages.each do |message| %>
+                      <% if message.role == "user" %>
+                        <span> <strong>User:</strong><%= message.content %></span>
+                      <% elsif message.role == "assistant" %>
+                        <span> <strong>Assistant:</strong><%= message.content %></span>
+                      <% elsif message.exist? == false %>
+                        Bonjour ! Je suis votre assistant familial. Je peux vous aider à planifier vos vacances, gérer les rappels de vaccins, suggérer des activités, et répondre à toutes vos questions familiales.
+                      <% end %>
+                    <% end %>
+                    <%= simple_form_for [@chat, @message] do |f| %>
+                      <%= f.input :content, placeholder: "Posez votre question :", label: false, input_html: { style: "background-color: #faf5ffff;" } %>
+                      <%= f.button :submit, "Demandez à l'assistant", class: "btn btn-outline-secondary"%>
+                    <% end %>
                   </p>
                 </div>
               </div>

@@ -11,7 +11,7 @@ class FamiliesController < ApplicationController
     @member = Member.new
     @members = current_user.family.members
     @chat = @family.chat
-    @Message = Message.new
+    @message = Message.new
   end
 
   def new
