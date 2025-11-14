@@ -11,6 +11,7 @@ class FamiliesController < ApplicationController
 
   def new
     @family = Family.new
+    #test
   end
 
   def create
